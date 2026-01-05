@@ -1,0 +1,38 @@
+name: Build and Analyze
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  build:
+    name: Build and Analyze
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Récupération du code
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Important pour que SonarQube ait l'historique complet
+
+      # 2. Configuration de Java 17 (ou 11 selon votre projet)
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: 17
+          distribution: 'zulu' # Distribution recommandée pour Sonar
+          cache: maven
+
+      # 3. Compilation, Tests et Analyse SonarQube [cite: 24, 29]
+      # Cette commande fait tout en une fois
+      - name: Build and analyze
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Nécessaire pour les commentaires sur les PR
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}    # Votre secret créé précédemment
+        run: >
+          mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+          -Dsonar.projectKey=SontagMaxime_Web-service
+          -Dsonar.organization=sontagmaxime
+          -Dsonar.host.url=https://sonarcloud.io

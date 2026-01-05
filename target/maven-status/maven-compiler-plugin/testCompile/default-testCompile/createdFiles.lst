@@ -1,1 +1,4 @@
-com/imt/framework/web/tuto/TutoApplicationTests.class
+com\imt\framework\web\tuto\TutoApplicationTests.class
+com\imt\framework\web\tuto\LivreResourceTest.class
+com\imt\framework\web\tuto\LivreRepositoryTest.class
+com\imt\framework\web\tuto\LivreTest.class
