@@ -13,7 +13,7 @@ class LivreTest {
 
         // Act
         livre.setId(1);
-        livre.setTitre("Test Titre");
+        livre.setTitre("Test Titreeee");
         livre.setAuteur("Test Auteur");
         livre.setPrice(10.5);
 
