@@ -19,7 +19,7 @@ class LivreTest {
 
         // Assert
         assertEquals(1, livre.getId());
-        assertEquals("Test Titre", livre.getTitre());
+        assertEquals("Test Titreeee", livre.getTitre());
         assertEquals("Test Auteur", livre.getAuteur());
         assertEquals(10.5, livre.getPrice());
     }
