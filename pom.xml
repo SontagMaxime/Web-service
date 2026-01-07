@@ -15,9 +15,6 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
-		<sonar.organization>sontagmaxime</sonar.organization>
-		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
-		<sonar.exclusions>**/model/**,**/config/**</sonar.exclusions>
 	</properties>
 	<dependencies>
 		<dependency>
